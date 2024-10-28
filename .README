@@ -1,0 +1,11 @@
+[DOC INTALL DOCKER WITH DOCKERFILE](https://www.jenkins.io/doc/book/installing/docker/)
+
+## BUILD IMAGE
+docker build -t test-jenkins-custom:1.0.0 .
+
+## RUN CONTAINER
+docker run -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock --name test_unicesar_jenkins_v1 test-jenkins-custom:1.0.0
+
+## VALIDATE INSTALL DOCKER CLI
+docker exec -it test_unicesar_jenkins_v1 bash
+docker --version
