@@ -1,4 +1,6 @@
-[DOC INTALL DOCKER WITH DOCKERFILE](https://www.jenkins.io/doc/book/installing/docker/)
+[DOC INSTALL DOCKER WITH DOCKERFILE](https://www.jenkins.io/doc/book/installing/docker/)
+[DOC INSTALL GCLOUD](https://cloud.google.com/sdk/docs/install?hl=es-419#deb)
+[DOC INSTALL KUBECTL](https://kubernetes.io/es/docs/tasks/tools/install-kubectl-linux/)
 
 ## BUILD IMAGE
 docker build -t test-jenkins-custom:1.0.0 .
@@ -6,6 +8,7 @@ docker build -t test-jenkins-custom:1.0.0 .
 ## RUN CONTAINER
 docker run -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock --name test_unicesar_jenkins_v1 test-jenkins-custom:1.0.0
 
-## VALIDATE INSTALL DOCKER CLI
+## HERRAMIENTAS
 docker exec -it test_unicesar_jenkins_v1 bash
 docker --version
+kubectl version --client
