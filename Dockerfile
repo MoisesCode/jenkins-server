@@ -28,11 +28,15 @@ RUN curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | gpg --dea
   && echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" \
   | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list \
   # && apt-get update && apt-get install -y google-cloud-sdk
-  && apt-get update && apt-get install -y google-cloud-cli
+  && apt-get update && apt-get install -y google-cloud-cli \
+  google-cloud-cli-gke-gcloud-auth-plugin
 
 # Instalación de kubectl v1.31.0
 RUN curl -LO "https://dl.k8s.io/release/v1.31.0/bin/linux/amd64/kubectl" \
   && install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl \
   && rm kubectl
+
+# Instalación de Helm
+RUN curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 
 # USER jenkins
